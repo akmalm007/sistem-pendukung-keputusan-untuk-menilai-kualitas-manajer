@@ -10,13 +10,14 @@
 	<table id="tabel-tampil">
 		<tr>
 			<th id="label-tampil-no">No</td>
-			<th>ID Anggota</th>
+			<th>ID Manajer</th>
 			<th>Nama</th>
-			<th>Foto</th>
+			<th>Divisi</th>
 			<th>Jenis Kelamin</th>
-			<th>Nomor Telepon</th>
-			<th>Email</th>
 			<th>Alamat</th>
+			<th>Status</th>
+			<th>Nilai</th>
+			<th>Foto</th>
 			<th id="label-opsi">Opsi</th>
 		</tr>
 		
@@ -53,7 +54,7 @@
 			}			
 		}
 		else {
-			$query = "SELECT * FROM tbanggota LIMIT $posisi, $batas";
+			$query = "SELECT * FROM tb_manajer LIMIT $posisi, $batas";
 			$queryJml = "SELECT * FROM tbanggota";
 			$no = $posisi * 1;
 		}
@@ -70,17 +71,18 @@
 		?>
 		<tr>
 			<td><?php echo $nomor; ?></td>
-			<td><?php echo $r_tampil_anggota['id_anggota']; ?></td>
-			<td><?php echo $r_tampil_anggota['nama_anggota']; ?></td>
-			<td><img src="images/<?php echo $foto; ?>" width=70px height=70px></td>
-			<td><?php echo $r_tampil_anggota['jenis_kelamin']; ?></td>
-			<td><?php echo $r_tampil_anggota['nomor_tlp']; ?></td>
-			<td><?php echo $r_tampil_anggota['email']; ?></td>
+			<td><?php echo $r_tampil_anggota['id_mnj']; ?></td>
+			<td><?php echo $r_tampil_anggota['nama']; ?></td>
+			<td><?php echo $r_tampil_anggota['divisi']; ?></td>
+			<td><?php echo $r_tampil_anggota['jeniskelamin']; ?></td>
 			<td><?php echo $r_tampil_anggota['alamat']; ?></td>
+			<td><?php echo $r_tampil_anggota['status']; ?></td>
+			<td><?php echo $r_tampil_anggota['nilai']; ?></td>
+
+			<td><img src="images/<?php echo $foto; ?>" width=70px height=70px></td>
 			<td>
-				<div class="tombol-opsi-container"><a target="_blank" href="pages/cetak_kartu.php?id=<?php echo $r_tampil_anggota['id_anggota'];?>" class="tombol">Cetak Kartu</a></div>
-				<div class="tombol-opsi-container"><a href="index.php?p=anggota-edit&id=<?php echo $r_tampil_anggota['id_anggota'];?>" class="tombol">Edit</a></div>
-				<div class="tombol-opsi-container"><a href="proses/anggota-hapus.php?id=<?php echo $r_tampil_anggota['id_anggota']; ?>" onclick = "return confirm ('Apakah Anda Yakin Akan Menghapus Data Ini?')" class="tombol">Hapus</a></div>
+				<div class="tombol-opsi-container"><a href="index.php?p=anggota-edit&id=<?php echo $r_tampil_anggota['id_mnj'];?>" class="tombol">Edit</a></div>
+				<div class="tombol-opsi-container"><a href="proses/anggota-hapus.php?id=<?php echo $r_tampil_anggota['id_mnj']; ?>" onclick = "return confirm ('Apakah Anda Yakin Akan Menghapus Data Ini?')" class="tombol">Hapus</a></div>
 			</td>			
 		</tr>		
 		<?php $nomor++; } 

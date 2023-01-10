@@ -33,16 +33,15 @@ if (isset($_SESSION['sesi'])) {
       </div>
       <div id="sidebar">
         <a href="index.php?p=beranda">Beranda</a>
-        <p class="label-navigasi">Data Master</p>
+        <p class="label-navigasi">Data Manajer</p>
         <ul>
-          <li><a href="index.php?p=anggota">Data Anggota</a></li>
-          <li><a href="index.php?p=buku">Data Buku</a></li>
+          <li><a href="index.php?p=manajer">Data Manajer</a></li>
+          <li><a href="index.php?p=buku">Data General Manajer</a></li>
         </ul>
-        <p class="label-navigasi">Data Transaksi</p>
+        <p class="label-navigasi">Penilaian General Manajer</p>
         <ul>
           <li><a href="index.php?p=transaksi-peminjaman">Transaksi Peminjaman</a></li>
           <!-- UNTUK TRANSAKSI KEMBALI DI INDEX PAKAI LIST SAJA NANTI UBAH GITU-->
-          <li><a href="index.php?p=transaksi-pengembalian">Transaksi Pengembalian</a></li>
         </ul>
         <p class="label-navigasi" style="color: white;"><a href="index.php?p=laporan-transaksi" style="color: white;">Laporan Transaksi</a></p>
         <a href="logout.php">Logout</a>
