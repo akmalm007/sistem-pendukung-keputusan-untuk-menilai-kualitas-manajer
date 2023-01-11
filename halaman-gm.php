@@ -23,7 +23,7 @@ if (isset($_SESSION['sesi'])) {
             <h1> Sistem Pendukung Keputusan untuk Memberikan Penilaian Manajer </h1>
           </div>
           <div class="nama-alamat-perpustakaan">
-            <h4> Jl. Prof. DR. G.A. Siwabessy Kampus, Kukusan, Kecamatan Beji, Kota Depok, Jawa Barat 16425</h4>
+            <h4> Projek Final dan Tugas Akhir Sistem Pendukung Keputusan</h4>
           </div>
         </div>
       </div>
