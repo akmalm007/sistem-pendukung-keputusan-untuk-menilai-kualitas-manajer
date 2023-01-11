@@ -23,7 +23,7 @@ if(mysqli_num_rows(mysqli_query($db,$sqlceknilai)) < 1 ) {
     $query = mysqli_query($db, $sql);
     if ($query) {
         echo "<script>alert('berhasil memasukkan data penilaian')</script>";
-        header("location:../halaman-gm.php");
+        header("location:../halaman-gm.php?p=gm");
     }else{
         echo "<script>alert('Gagal Memasukkan data')</script>";
     }

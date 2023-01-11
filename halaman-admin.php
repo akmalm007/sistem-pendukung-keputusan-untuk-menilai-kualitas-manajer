@@ -8,7 +8,8 @@ if (isset($_SESSION['sesi'])) {
   <html>
 
   <head>
-    <title>Sistem Informasi Perpustakaan</title>
+    <title>SPK Smart
+    </title>
     <link rel="stylesheet" type="text/css" href="style.css">
   </head>
 
@@ -20,10 +21,10 @@ if (isset($_SESSION['sesi'])) {
         </div>
         <div id="nama-alamat-perpustakaan-container">
           <div class="nama-alamat-perpustakaan">
-            <h1> PERPUSTAKAAN UMUM </h1>
+            <h1> Sistem Pendukung Keputusan untuk Memberikan Penilaian Manajer </h1>
           </div>
           <div class="nama-alamat-perpustakaan">
-            <h4> Jl. Prof. DR. G.A. Siwabessy Kampus, Kukusan, Kecamatan Beji, Kota Depok, Jawa Barat 16425</h4>
+            <h4> Projek Final dan Tugas Akhir Sistem Pendukung Keputusan</h4>
           </div>
         </div>
       </div>
@@ -41,7 +42,7 @@ if (isset($_SESSION['sesi'])) {
         <p class="label-navigasi">Assessment</p>
         <ul>
           <li><a href="halaman-admin.php?p=kriteria">Kriteria</a></li>
-          <li><a href="halaman-admin.php?p=kriteria">Penilaian General Manajer</a></li>
+          <li><a href="halaman-admin.php?p=gm-hasil-nilai">Penilaian General Manajer</a></li>
           <!-- UNTUK TRANSAKSI KEMBALI DI INDEX PAKAI LIST SAJA NANTI UBAH GITU-->
         </ul>
         <p class="label-navigasi" style="color: white;"><a href="halaman-admin.php?p=laporan-transaksi" style="color: white;">Laporan Transaksi</a></p>
@@ -79,7 +80,7 @@ if (isset($_SESSION['sesi'])) {
         ?>
       </div>
       <div id="footer">
-        <h3>Sistem Informasi Perpustakaan (sipus) | Praktikum </h3>
+        <h3>Sistem Pendukung Keputusan Menilai Kualitas Manajer | Final Project </h3>
       </div>
     </div>
   </body>

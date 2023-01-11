@@ -26,7 +26,7 @@ $mnj_select = mysqli_query($db, $sqlmnj);
                     while ($r_mnj = mysqli_fetch_array($mnj_select,MYSQLI_ASSOC)):;
                     
                 ?>
-                <option value="<?php echo $r_mnj['id_mnj'];?>"><?php echo $r_mnj['id_mnj'];?><p>( <?php echo $r_mnj['nama'];?> ) </p>
+                <option value="<?php echo $r_mnj['id_mnj'];?>"><p><?php echo $r_mnj['nama'];?> </p>
                 <?php
                 endwhile;
                 ?>
@@ -87,41 +87,8 @@ $mnj_select = mysqli_query($db, $sqlmnj);
 
 		
 		<?php
-		$batas = 5;
-		extract($_GET);
-		if(empty($hal)){
-			$posisi = 0;
-			$hal = 1;
-			$nomor = 1;
-		}
-		else {
-			$posisi = ($hal - 1) * $batas;
-			$nomor = $posisi+1;
-		}	
-		if($_SERVER['REQUEST_METHOD'] == "POST"){
-			$pencarian = trim(mysqli_real_escape_string($db, $_POST['pencarian']));
-			if($pencarian != ""){
-				$sql = "SELECT * FROM tbanggota WHERE nama LIKE '%$pencarian%'
-						OR idanggota LIKE '%$pencarian%'
-						OR jeniskelamin LIKE '%$pencarian%'
-						OR alamat LIKE '%$pencarian%'";
-				
-				$query = $sql;
-				$queryJml = $sql;	
-						
-			}
-			else {
-				$query = "SELECT * FROM tbanggota LIMIT $posisi, $batas";
-				$queryJml = "SELECT * FROM tbanggota";
-				$no = $posisi * 1;
-			}			
-		}
-		else {
-			$query = "SELECT * FROM penilaian LIMIT $posisi, $batas";
-			$queryJml = "SELECT * FROM tb_manajer";
-			$no = $posisi * 1;
-		}
-		
+		$nomor = 1;
+		$query = "SELECT * FROM penilaian ";
 		//$sql="SELECT * FROM tbanggota ORDER BY idanggota DESC";
 		$q_tampil_anggota = mysqli_query($db, $query);
 		if(mysqli_num_rows($q_tampil_anggota)>0)

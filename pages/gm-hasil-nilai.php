@@ -1,8 +1,6 @@
-<div id="label-page"><h3>Tampil Data Nilai Manajer</h3></div>
+<div id="label-page"><h3>Tampil Hasil Nilai Manajer</h3></div>
 <div id="content">
 	
-	<p id="tombol-tambah-container"><a href="halaman-admin.php?p=gm-input" class="tombol">Tambah General Manajer</a>
-	<a target="_blank" href="pages/cetak.php"><img src="print.png" height="50px" height="50px"></a>
 	<FORM CLASS="form-inline" METHOD="POST">
 	<div align="right"><form method=post><input type="text" name="pencarian"><input type="submit" name="search" value="search" class="tombol"></form>
 	</FORM>

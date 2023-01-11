@@ -8,7 +8,7 @@ if (isset($_SESSION['sesi'])) {
   <html>
 
   <head>
-    <title>Sistem Informasi Perpustakaan</title>
+    <title>Sistem Pendukung Keputusan </title>
     <link rel="stylesheet" type="text/css" href="style.css">
   </head>
 
@@ -20,7 +20,7 @@ if (isset($_SESSION['sesi'])) {
         </div>
         <div id="nama-alamat-perpustakaan-container">
           <div class="nama-alamat-perpustakaan">
-            <h1> PERPUSTAKAAN UMUM </h1>
+            <h1> Sistem Pendukung Keputusan untuk Memberikan Penilaian Manajer </h1>
           </div>
           <div class="nama-alamat-perpustakaan">
             <h4> Jl. Prof. DR. G.A. Siwabessy Kampus, Kukusan, Kecamatan Beji, Kota Depok, Jawa Barat 16425</h4>
@@ -79,7 +79,7 @@ if (isset($_SESSION['sesi'])) {
         ?>
       </div>
       <div id="footer">
-        <h3>Sistem Informasi Perpustakaan (sipus) | Praktikum </h3>
+        <h3>Sistem Pendukung Keputusan Menilai Kualitas Manajer | Final Project</h3>
       </div>
     </div>
   </body>
