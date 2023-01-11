@@ -10,7 +10,7 @@ $query_manajer = mysqli_query($db, "INSERT INTO tb_gm (id_gm, nama, jeniskelamin
 value ('$id_gmanajer','$nama', '$jenis_kelamin','$alamat','$agama')");
 
 if ($query_manajer) {
-	header("location:../index.php?p=gm");
+	header("location:../halaman-admin.php?p=gm");
 
 } else {
 	echo 'Gagal tersimpan';

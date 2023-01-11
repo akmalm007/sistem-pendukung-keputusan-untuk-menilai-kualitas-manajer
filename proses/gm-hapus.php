@@ -7,5 +7,5 @@ mysqli_query($db,
 	WHERE id_gm='$id_gm'"
 );
 
-header("location:../index.php?p=gm");
+header("location:../halaman-admin.php?p=gm");
 ?>

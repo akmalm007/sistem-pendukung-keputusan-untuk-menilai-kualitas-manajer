@@ -39,7 +39,9 @@ if (isset($_SESSION['sesi'])) {
         </ul>
         <p class="label-navigasi">Assessment</p>
         <ul>
-          <li><a href="halaman-gm.php?p=kriteria">Penilaian General Manajer</a></li>
+          <li><a href="halaman-gm.php?p=gm-nilai">Penilaian General Manajer</a></li>
+          <li><a href="halaman-gm.php?p=gm-hasil-nilai">Hasil Assessment</a></li>
+
           <!-- UNTUK TRANSAKSI KEMBALI DI INDEX PAKAI LIST SAJA NANTI UBAH GITU-->
         </ul>
         <p class="label-navigasi" style="color: white;"><a href="halaman-gm.php?p=laporan-transaksi" style="color: white;">Laporan Transaksi</a></p>

@@ -7,5 +7,5 @@ mysqli_query($db,
 	WHERE id_mnj='$id_mnj'"
 );
 
-header("location:../index.php?p=manajer");
+header("location:../halaman-admin.php?p=manajer");
 ?>

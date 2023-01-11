@@ -11,7 +11,7 @@ $query_manajer = mysqli_query($db, "INSERT INTO tb_manajer (id_mnj, nama, divisi
 value ('$id_manager','$nama','$divisi', '$jenis_kelamin','$alamat','$agama')");
 
 if ($query_manajer) {
-	header("location:../index.php?p=manajer");
+	header("location:../halaman-admin.php?p=manajer");
 
 } else {
 	echo 'Gagal tersimpan';

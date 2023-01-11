@@ -1,7 +1,7 @@
 <div id="label-page"><h3>Tampil Data General Manajer</h3></div>
 <div id="content">
 	
-	<p id="tombol-tambah-container"><a href="index.php?p=gm-input" class="tombol">Tambah General Manajer</a>
+	<p id="tombol-tambah-container"><a href="halaman-admin.php?p=gm-input" class="tombol">Tambah General Manajer</a>
 	<a target="_blank" href="pages/cetak.php"><img src="print.png" height="50px" height="50px"></a>
 	<FORM CLASS="form-inline" METHOD="POST">
 	<div align="right"><form method=post><input type="text" name="pencarian"><input type="submit" name="search" value="search" class="tombol"></form>
@@ -21,41 +21,8 @@
 
 		
 		<?php
-		$batas = 5;
-		extract($_GET);
-		if(empty($hal)){
-			$posisi = 0;
-			$hal = 1;
-			$nomor = 1;
-		}
-		else {
-			$posisi = ($hal - 1) * $batas;
-			$nomor = $posisi+1;
-		}	
-		if($_SERVER['REQUEST_METHOD'] == "POST"){
-			$pencarian = trim(mysqli_real_escape_string($db, $_POST['pencarian']));
-			if($pencarian != ""){
-				$sql = "SELECT * FROM tbanggota WHERE nama LIKE '%$pencarian%'
-						OR idanggota LIKE '%$pencarian%'
-						OR jeniskelamin LIKE '%$pencarian%'
-						OR alamat LIKE '%$pencarian%'";
-				
-				$query = $sql;
-				$queryJml = $sql;	
-						
-			}
-			else {
-				$query = "SELECT * FROM tbanggota LIMIT $posisi, $batas";
-				$queryJml = "SELECT * FROM tbanggota";
-				$no = $posisi * 1;
-			}			
-		}
-		else {
-			$query = "SELECT * FROM tb_gm LIMIT $posisi, $batas";
-			$queryJml = "SELECT * FROM tb_manajer";
-			$no = $posisi * 1;
-		}
-		
+		$nomor = 1;
+		$query = "SELECT * FROM tb_gm";
 		//$sql="SELECT * FROM tbanggota ORDER BY idanggota DESC";
 		$q_tampil_anggota = mysqli_query($db, $query);
 		if(mysqli_num_rows($q_tampil_anggota)>0)
@@ -95,23 +62,6 @@
 	}
 	else{ ?>
 		<div style="float: left;">		
-		<?php
-			$jml = mysqli_num_rows(mysqli_query($db, $queryJml));
-			echo "Jumlah Data : <b>$jml</b>";
-		?>			
-		</div>		
-		<div class="pagination">		
-				<?php
-				$jml_hal = ceil($jml/$batas);
-				for($i=1; $i<=$jml_hal; $i++){
-					if($i != $hal){
-						echo "<a href=\"?p=anggota&hal=$i\">$i</a>";
-					}
-					else {
-						echo "<a class=\"active\">$i</a>";
-					}
-				}
-				?>
 		</div>
 	<?php
 	}

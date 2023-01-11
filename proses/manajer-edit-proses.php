@@ -12,6 +12,6 @@ $agama = $_POST['agama'];
 		SET nama='$nama', jeniskelamin='$jenis_kelamin', divisi = '$divisi', alamat='$alamat', agama = '$agama' 
 		WHERE id_mnj='$id_manajer'"
 	);
-	header("location:../index.php?p=manajer");
+	header("location:../halaman-admin.php?p=manajer");
 
 ?>
