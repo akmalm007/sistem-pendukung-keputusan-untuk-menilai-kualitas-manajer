@@ -1,7 +1,8 @@
-<div id="label-page"><h3>Tampil Data Transaksi</h3></div>
+<div id="label-page"><h3>Tampil Data General Manajer</h3></div>
 <div id="content">
 	
-	<p id="tombol-tambah-container"><a href="index.php?p=transaksi-input" class="tombol">Transaksi Peminjaman</a>
+	<p id="tombol-tambah-container"><a href="index.php?p=gm-input" class="tombol">Tambah General Manajer</a>
+	<a target="_blank" href="pages/cetak.php"><img src="print.png" height="50px" height="50px"></a>
 	<FORM CLASS="form-inline" METHOD="POST">
 	<div align="right"><form method=post><input type="text" name="pencarian"><input type="submit" name="search" value="search" class="tombol"></form>
 	</FORM>
@@ -9,12 +10,11 @@
 	<table id="tabel-tampil">
 		<tr>
 			<th id="label-tampil-no">No</td>
-			<th>ID Transaksi</th>
-			<th>ID Anggota</th>
+			<th>ID General Manajer</th>
 			<th>Nama</th>
-			<th>ID Buku</th>
-			<th>Judul Buku</th>
-			<th>Tanggal Pinjam</th>
+			<th>Jenis Kelamin</th>
+			<th>Alamat</th>
+			<th>Agama</th>
 			<th id="label-opsi">Opsi</th>
 		</tr>
 		
@@ -35,10 +35,10 @@
 		if($_SERVER['REQUEST_METHOD'] == "POST"){
 			$pencarian = trim(mysqli_real_escape_string($db, $_POST['pencarian']));
 			if($pencarian != ""){
-				$sql = "SELECT * FROM tbtransaksi WHERE id_transaksi LIKE '%$pencarian%'
-						OR id_anggota LIKE '%$pencarian%'
-						OR id_buku LIKE '%$pencarian%''";
-						
+				$sql = "SELECT * FROM tbanggota WHERE nama LIKE '%$pencarian%'
+						OR idanggota LIKE '%$pencarian%'
+						OR jeniskelamin LIKE '%$pencarian%'
+						OR alamat LIKE '%$pencarian%'";
 				
 				$query = $sql;
 				$queryJml = $sql;	
@@ -46,45 +46,36 @@
 			}
 			else {
 				$query = "SELECT * FROM tbanggota LIMIT $posisi, $batas";
-				$queryJml = "SELECT * FROM tbtransaksi";
+				$queryJml = "SELECT * FROM tbanggota";
 				$no = $posisi * 1;
 			}			
 		}
 		else {
-			$query = "SELECT 
-			tbtransaksi.id_transaksi,
-			tbtransaksi.id_anggota,
-			tbanggota.nama_anggota,
-			tbtransaksi.id_buku,
-			buku.judul_buku,
-			tbtransaksi.tgl_pinjam,
-			tbtransaksi.tgl_kembali
-		FROM tbtransaksi
-		JOIN tbanggota
-			ON tbtransaksi.id_anggota = tbanggota.id_anggota
-		JOIN buku
-			ON tbtransaksi.id_buku = buku.id_buku LIMIT $posisi, $batas";
-			$queryJml = "SELECT * FROM tbtransaksi";
+			$query = "SELECT * FROM tb_gm LIMIT $posisi, $batas";
+			$queryJml = "SELECT * FROM tb_manajer";
 			$no = $posisi * 1;
 		}
 		
 		//$sql="SELECT * FROM tbanggota ORDER BY idanggota DESC";
-		$q_tampil_transaksi = mysqli_query($db, $query);
-
-		if(mysqli_num_rows($q_tampil_transaksi)>0)
+		$q_tampil_anggota = mysqli_query($db, $query);
+		if(mysqli_num_rows($q_tampil_anggota)>0)
 		{
-		while($r_tampil_transaksi=mysqli_fetch_array($q_tampil_transaksi)){
+		while($r_tampil_anggota=mysqli_fetch_array($q_tampil_anggota)){
+			/*if(empty($r_tampil_anggota['foto'])or($r_tampil_anggota['foto']=='-'))
+				$foto = "admin-no-photo.jpg";
+			else
+				$foto = $r_tampil_anggota['foto'];*/
 		?>
 		<tr>
 			<td><?php echo $nomor; ?></td>
-			<td><?php echo $r_tampil_transaksi['id_transaksi']; ?></td>
-			<td><?php echo $r_tampil_transaksi['id_anggota']; ?></td>
-			<td><?php echo $r_tampil_transaksi['nama_anggota']; ?></td>
-			<td><?php echo $r_tampil_transaksi['id_buku']; ?></td>
-			<td><?php echo $r_tampil_transaksi['judul_buku']; ?></td>
-			<td><?php echo $r_tampil_transaksi['tgl_pinjam']; ?></td>
+			<td><?php echo $r_tampil_anggota['id_gm']; ?></td>
+			<td><?php echo $r_tampil_anggota['nama']; ?></td>
+			<td><?php echo $r_tampil_anggota['jeniskelamin']; ?></td>
+			<td><?php echo $r_tampil_anggota['alamat']; ?></td>
+			<td><?php echo $r_tampil_anggota['agama']; ?></td>
 			<td>
-				<div class="tombol-opsi-container"><a target="_blank" href="pages/cetak-nota.php?id=<?php echo $r_tampil_transaksi['id_transaksi'];?>" class="tombol">Cetak Nota</a></div>
+				<div class="tombol-opsi-container"><a href="index.php?p=gm-edit&id=<?php echo $r_tampil_anggota['id_gm'];?>" class="tombol">Edit</a></div>
+				<div class="tombol-opsi-container"><a href="proses/gm-hapus.php?id=<?php echo $r_tampil_anggota['id_gm']; ?>" onclick = "return confirm ('Apakah Anda Yakin Akan Menghapus Data Ini?')" class="tombol">Hapus</a></div>
 			</td>			
 		</tr>		
 		<?php $nomor++; } 
@@ -114,7 +105,7 @@
 				$jml_hal = ceil($jml/$batas);
 				for($i=1; $i<=$jml_hal; $i++){
 					if($i != $hal){
-						echo "<a href=\"?p=transaksi-peminjaman&hal=$i\">$i</a>";
+						echo "<a href=\"?p=anggota&hal=$i\">$i</a>";
 					}
 					else {
 						echo "<a class=\"active\">$i</a>";

@@ -1,6 +1,8 @@
-<div id="label-page"><h3>Tampil Data Transaksi</h3></div>
+<div id="label-page"><h3>Tampil Data Manajer</h3></div>
 <div id="content">
 	
+	<p id="tombol-tambah-container"><a href="index.php?p=manajer-input" class="tombol">Tambah Manajer</a>
+	<a target="_blank" href="pages/cetak.php"><img src="print.png" height="50px" height="50px"></a>
 	<FORM CLASS="form-inline" METHOD="POST">
 	<div align="right"><form method=post><input type="text" name="pencarian"><input type="submit" name="search" value="search" class="tombol"></form>
 	</FORM>
@@ -8,13 +10,12 @@
 	<table id="tabel-tampil">
 		<tr>
 			<th id="label-tampil-no">No</td>
-			<th>ID Transaksi</th>
-			<th>ID Anggota</th>
+			<th>ID Manajer</th>
 			<th>Nama</th>
-			<th>ID Buku</th>
-			<th>Judul Buku</th>
-			<th>Tanggal Kembali</th>
-			<th id="label-opsi">Opsi</th>
+			<th>Divisi</th>
+			<th>Jenis Kelamin</th>
+			<th>Alamat</th>
+			<th>Agama</th>
 		</tr>
 		
 
@@ -34,10 +35,10 @@
 		if($_SERVER['REQUEST_METHOD'] == "POST"){
 			$pencarian = trim(mysqli_real_escape_string($db, $_POST['pencarian']));
 			if($pencarian != ""){
-				$sql = "SELECT * FROM tbtransaksi WHERE id_transaksi LIKE '%$pencarian%'
-						OR id_anggota LIKE '%$pencarian%'
-						OR id_buku LIKE '%$pencarian%''";
-						
+				$sql = "SELECT * FROM tbanggota WHERE nama LIKE '%$pencarian%'
+						OR idanggota LIKE '%$pencarian%'
+						OR jeniskelamin LIKE '%$pencarian%'
+						OR alamat LIKE '%$pencarian%'";
 				
 				$query = $sql;
 				$queryJml = $sql;	
@@ -45,47 +46,34 @@
 			}
 			else {
 				$query = "SELECT * FROM tbanggota LIMIT $posisi, $batas";
-				$queryJml = "SELECT * FROM tbtransaksi";
+				$queryJml = "SELECT * FROM tbanggota";
 				$no = $posisi * 1;
 			}			
 		}
 		else {
-			$query = "SELECT 
-			tbtransaksi.id_transaksi,
-			tbtransaksi.id_anggota,
-			tbanggota.nama_anggota,
-			tbtransaksi.id_buku,
-			buku.judul_buku,
-			tbtransaksi.tgl_pinjam,
-			tbtransaksi.tgl_kembali
-		FROM tbtransaksi
-		JOIN tbanggota
-			ON tbtransaksi.id_anggota = tbanggota.id_anggota
-		JOIN buku
-			ON tbtransaksi.id_buku = buku.id_buku LIMIT $posisi, $batas";
-			$queryJml = "SELECT * FROM tbtransaksi";
+			$query = "SELECT * FROM tb_manajer LIMIT $posisi, $batas";
+			$queryJml = "SELECT * FROM tb_manajer";
 			$no = $posisi * 1;
 		}
 		
 		//$sql="SELECT * FROM tbanggota ORDER BY idanggota DESC";
-		$q_tampil_transaksi = mysqli_query($db, $query);
-
-		if(mysqli_num_rows($q_tampil_transaksi)>0)
+		$q_tampil_anggota = mysqli_query($db, $query);
+		if(mysqli_num_rows($q_tampil_anggota)>0)
 		{
-		while($r_tampil_transaksi=mysqli_fetch_array($q_tampil_transaksi)){
+		while($r_tampil_anggota=mysqli_fetch_array($q_tampil_anggota)){
+			/*if(empty($r_tampil_anggota['foto'])or($r_tampil_anggota['foto']=='-'))
+				$foto = "admin-no-photo.jpg";
+			else
+				$foto = $r_tampil_anggota['foto'];*/
 		?>
 		<tr>
 			<td><?php echo $nomor; ?></td>
-			<td><?php echo $r_tampil_transaksi['id_transaksi']; ?></td>
-			<td><?php echo $r_tampil_transaksi['id_anggota']; ?></td>
-			<td><?php echo $r_tampil_transaksi['nama_anggota']; ?></td>
-			<td><?php echo $r_tampil_transaksi['id_buku']; ?></td>
-			<td><?php echo $r_tampil_transaksi['judul_buku']; ?></td>
-			<td><?php echo $r_tampil_transaksi['tgl_kembali']; ?></td>
-
-			<td>
-				<div class="tombol-opsi-container"><a target="_self" href="index.php?p=transaksi-pengembalian-input&id=<?php echo $r_tampil_transaksi['id_transaksi'];?>" class="tombol">Pengembalian</a></div>
-			</td>			
+			<td><?php echo $r_tampil_anggota['id_mnj']; ?></td>
+			<td><?php echo $r_tampil_anggota['nama']; ?></td>
+			<td><?php echo $r_tampil_anggota['divisi']; ?></td>
+			<td><?php echo $r_tampil_anggota['jeniskelamin']; ?></td>
+			<td><?php echo $r_tampil_anggota['alamat']; ?></td>
+			<td><?php echo $r_tampil_anggota['agama']; ?></td>			
 		</tr>		
 		<?php $nomor++; } 
 		}
@@ -114,7 +102,7 @@
 				$jml_hal = ceil($jml/$batas);
 				for($i=1; $i<=$jml_hal; $i++){
 					if($i != $hal){
-						echo "<a href=\"?p=transaksi-pengembalian&hal=$i\">$i</a>";
+						echo "<a href=\"?p=anggota&hal=$i\">$i</a>";
 					}
 					else {
 						echo "<a class=\"active\">$i</a>";

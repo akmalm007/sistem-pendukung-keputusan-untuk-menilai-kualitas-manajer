@@ -1,15 +1,11 @@
-<div id="label-page"><h3>Input Data Anggota</h3></div>
+<div id="label-page"><h3>Input Data General Manajer</h3></div>
 <div id="content">
-	<form action="proses/anggota-input-proses.php" method="post" enctype="multipart/form-data">
+	<form action="proses/gm-input-proses.php" method="post" enctype="multipart/form-data">
 	
 	<table id="tabel-input">
 		<tr>
-			<td class="label-formulir">FOTO</td>
-			<td class="isian-formulir"><input type="file" name="foto" class="isian-formulir isian-formulir-border"></td>
-		</tr>
-		<tr>
-			<td class="label-formulir">ID Anggota</td>
-			<td class="isian-formulir"><input type="text" name="id_anggota" class="isian-formulir isian-formulir-border"></td>
+			<td class="label-formulir">ID General Manajer</td>
+			<td class="isian-formulir"><input type="text" name="id_gm" class="isian-formulir isian-formulir-border"></td>
 		</tr>
 		<tr>
 			<td class="label-formulir">Nama</td>
@@ -24,14 +20,9 @@
 			<td class="isian-formulir"><input type="radio" name="jenis_kelamin" value="Wanita">Wanita</td>
 		</tr>
 		<tr>
-			<td class="label-formulir">Nomor Telepon</td>
-			<td class="isian-formulir"><input type="text" name="nomor_telepon" class="isian-formulir isian-formulir-border"></td>
+			<td class="label-formulir">Agama</td>
+			<td class="isian-formulir"><input type="text" name="agama" class="isian-formulir isian-formulir-border"></td>
 		</tr>
-		<tr>
-			<td class="label-formulir">Email</td>
-			<td class="isian-formulir"><input type="text" name="email" class="isian-formulir isian-formulir-border"></td>
-		</tr>
-		
 		<tr>
 			<td class="label-formulir">Alamat</td>
 			<td class="isian-formulir"><textarea rows="2" cols="40" name="alamat" class="isian-formulir isian-formulir-border"></textarea></td>
