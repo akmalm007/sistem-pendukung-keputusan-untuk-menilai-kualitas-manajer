@@ -24,7 +24,7 @@ if (isset($_SESSION['sesi'])) {
             <h1> Sistem Pendukung Keputusan untuk Memberikan Penilaian Manajer </h1>
           </div>
           <div class="nama-alamat-perpustakaan">
-            <h4> Projek Final dan Tugas Akhir Sistem Pendukung Keputusan</h4>
+            <h4> Projeck Final Web2</h4>
           </div>
         </div>
       </div>
@@ -36,13 +36,13 @@ if (isset($_SESSION['sesi'])) {
         <a href="halaman-admin.php?p=beranda">Beranda</a>
         <p class="label-navigasi">Data Manajer</p>
         <ul>
-          <li><a href="halaman-admin.php?p=manajer">Data Manajer</a></li>
-          <li><a href="halaman-admin.php?p=gm">Data General Manajer</a></li>
+          <li><a href="halaman-gm.php?p=manajer">Data Manajer</a></li>
+          <li><a href="halaman-gm.php?p=gm">Data General Manajer</a></li>
         </ul>
         <p class="label-navigasi">Assessment</p>
         <ul>
-          <li><a href="halaman-admin.php?p=kriteria">Kriteria</a></li>
-          <li><a href="halaman-admin.php?p=gm-hasil-nilai">Penilaian General Manajer</a></li>
+          <li><a href="halaman-gm.php?p=kriteria">Kriteria</a></li>
+          <li><a href="halaman-gm.php?p=gm-hasil-nilai">Penilaian General Manajer</a></li>
           <!-- UNTUK TRANSAKSI KEMBALI DI INDEX PAKAI LIST SAJA NANTI UBAH GITU-->
         </ul>
         <p class="label-navigasi" style="color: white;"><a href="halaman-admin.php?p=laporan-transaksi" style="color: white;">Laporan Transaksi</a></p>

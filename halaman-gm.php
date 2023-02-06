@@ -23,7 +23,7 @@ if (isset($_SESSION['sesi'])) {
             <h1> Sistem Pendukung Keputusan untuk Memberikan Penilaian Manajer </h1>
           </div>
           <div class="nama-alamat-perpustakaan">
-            <h4> Projek Final dan Tugas Akhir Sistem Pendukung Keputusan</h4>
+            <h4> Projek Final Web2 </h4>
           </div>
         </div>
       </div>
@@ -41,7 +41,7 @@ if (isset($_SESSION['sesi'])) {
         <ul>
           <li><a href="halaman-gm.php?p=gm-nilai">Penilaian General Manajer</a></li>
           <li><a href="halaman-gm.php?p=gm-hasil-nilai">Hasil Assessment</a></li>
-
+          <li><a href="halaman-gm.php?p=gm-ranking">Ranking</a></li>
           <!-- UNTUK TRANSAKSI KEMBALI DI INDEX PAKAI LIST SAJA NANTI UBAH GITU-->
         </ul>
         <p class="label-navigasi" style="color: white;"><a href="halaman-gm.php?p=laporan-transaksi" style="color: white;">Laporan Transaksi</a></p>

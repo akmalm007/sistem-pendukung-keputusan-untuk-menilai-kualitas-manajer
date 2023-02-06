@@ -10,7 +10,7 @@ $sqlmnj = "SELECT * FROM tb_manajer";
 $mnj_select = mysqli_query($db, $sqlmnj);
 
 ?>
-<div id="label-page"><h3>Input Data General Manajer</h3></div>
+<div id="label-page"><h3>Input Data Manajer</h3></div>
 <div id="content">
 	<form action="proses/gm-nilai-proses.php" method="post" enctype="multipart/form-data">
 	

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 11, 2023 at 01:19 PM
+-- Generation Time: Jan 26, 2023 at 01:57 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.0.13
 
@@ -66,17 +66,18 @@ CREATE TABLE `penilaian` (
   `n_organisasi` float NOT NULL,
   `n_masalah` float NOT NULL,
   `n_interpersonal` float NOT NULL,
-  `n_komunikasi` float NOT NULL
+  `n_komunikasi` float NOT NULL,
+  `hasil` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `penilaian`
 --
 
-INSERT INTO `penilaian` (`id_penilaian`, `fk_id_manajer`, `n_sikap`, `n_tjawab`, `n_kompetensi`, `n_rencana`, `n_arah`, `n_organisasi`, `n_masalah`, `n_interpersonal`, `n_komunikasi`) VALUES
-(7, 888, 100, 100, 100, 80, 97, 81, 75, 98, 100),
-(8, 123, 14, 70, 70, 70, 70, 51, 51, 55, 55),
-(9, 1003, 55, 65, 14, 88, 89, 77, 50, 51, 41);
+INSERT INTO `penilaian` (`id_penilaian`, `fk_id_manajer`, `n_sikap`, `n_tjawab`, `n_kompetensi`, `n_rencana`, `n_arah`, `n_organisasi`, `n_masalah`, `n_interpersonal`, `n_komunikasi`, `hasil`) VALUES
+(11, 1001, 100, 85, 90, 80, 90, 80, 90, 80, 90, 90),
+(12, 1002, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60),
+(13, 1003, 100, 95, 98, 99, 95, 100, 25, 95, 100, 94);
 
 -- --------------------------------------------------------
 
@@ -119,10 +120,7 @@ CREATE TABLE `tb_gm` (
 --
 
 INSERT INTO `tb_gm` (`id_gm`, `nama`, `jeniskelamin`, `alamat`, `agama`) VALUES
-(0, 'Akmal Ma', 'Pria', 'Shibuya', 'Islam'),
-(123, 'akmal', 'Pria', 'asd', 'asd'),
-(1004, 'Rosya', 'Wanita', 'Russia', 'Islam'),
-(10001, 'Fery Purnama', 'Pria', 'Mayang, Kota Jambi', 'Tidak Meminjam');
+(101, 'Bintang Akbar', 'Pria', 'Depok, Indonesia', 'Islam');
 
 -- --------------------------------------------------------
 
@@ -144,14 +142,9 @@ CREATE TABLE `tb_manajer` (
 --
 
 INSERT INTO `tb_manajer` (`id_mnj`, `nama`, `divisi`, `jeniskelamin`, `alamat`, `agama`) VALUES
-(123, 'Ash', 'HR', 'Wanita', 'Terra', 'Islam'),
-(213, 'Ash', 'Negara', 'Pria', 'Gajah', 'Hindu'),
-(888, 'Bonds', 'Agent', 'Pria', 'Shibuya', 'Islam'),
-(1002, 'Gnosis', 'Militer', 'Pria', 'Kjreag', 'Islam'),
-(1003, 'Mock', 'Militer', 'Wanita', 'Terra', 'Hindu'),
-(1212, 'asd', 'Keuangan', 'Pria', 'asd', 'Islam'),
-(1512, 'aa', 'asd', 'Pria', 'asddd', 'asd'),
-(10001, 'Fery Purnama', 'Keuangan', 'Pria', 'Mayang, Kota Jambi', 'Menikah');
+(1001, 'Akmal Maulana', 'Human Resource', 'Pria', 'Bogor, Indonesia', 'Islam'),
+(1002, 'Ash', 'Keuangan', '', 'Terra', 'Hindu'),
+(1003, 'Scania', 'Negara', 'Pria', 'Osaka', 'Hindu');
 
 --
 -- Indexes for dumped tables
@@ -202,7 +195,7 @@ ALTER TABLE `kriteria`
 -- AUTO_INCREMENT for table `penilaian`
 --
 ALTER TABLE `penilaian`
-  MODIFY `id_penilaian` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_penilaian` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `tb_admin`

@@ -11,8 +11,9 @@ $masalah = $_POST['masalah'];
 $interpersonal = $_POST['interpersonal'];
 $komunikasi = $_POST['komunikasi'];
 
+
 $sqlceknilai = "SELECT * FROM penilaian WHERE fk_id_manajer = $id_mnj";
-$sqlcekmnj = "SELECT * from tb_manaer WHERE id_mnj = $id_mnj";
+$sqlcekmnj = "SELECT * from tb_manajer WHERE id_mnj = $id_mnj";
 $cekquery = mysqli_query($db, $sqlcekmnj);
 
 if(mysqli_num_rows(mysqli_query($db,$sqlceknilai)) < 1 ) {
