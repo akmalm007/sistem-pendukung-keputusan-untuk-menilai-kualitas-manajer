@@ -1,7 +1,9 @@
 
-#project akhir SPK
+Project Akhir Sistem Pendukung Keputusan
+==
 Final Project membuat DSS untuk penilain Manajer dengan menggunakan metode SMART
-=======
-# sistem-pendukung-keputusan-untuk-menilai-kualitas-manajer
-Sistem Pendukung Keputusan yang dibuat untuk menilai kemampuan manajer dengan metode SMART sebagai penilaian
+--
+Aplikasi ini di desain menggunakan bahasa pemrograman PHP untuk melakukan penilaian terhadap performa Manajer
+dengan menggunakan metode SMART sebagai cara untuk memberikan rekomendasi piliha manajer berdasarkan 
+Form Penilaian yang telah disediakan oleh Perusahaan.
 
